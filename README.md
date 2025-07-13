@@ -69,19 +69,24 @@ curl http://127.0.0.1:3000/video/abc123
 curl http://127.0.0.1:3000/music/xyz789
 ```
 
+### Automatic Recompilation with cargo-watch
+
+For a smoother development experience, you can use [`cargo-watch`](https://crates.io/crates/cargo-watch) to automatically recompile and restart your backend whenever you change files.
+
+#### Install cargo-watch
+
+```bash
+cargo install cargo-watch
+```
+
+#### Run the server with cargo-watch
+
+```bash
+cargo watch -x run
+```
+
+This will watch your project files and automatically restart the server when you make changes.
+
 ## Project Structure
 
-- `src/main.rs` — Main application code, router setup
-- `src/user.rs` — User endpoint module
-- `src/video.rs` — Video endpoint module
-- `src/music.rs` — Music endpoint module
-- `Cargo.toml` — Project dependencies and metadata
-
-## Dependencies
-- [axum](https://crates.io/crates/axum)
-- [serde](https://crates.io/crates/serde)
-- [tokio](https://crates.io/crates/tokio)
-
-## License
-
-MIT
+- `src/main.rs`
