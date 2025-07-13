@@ -1,4 +1,4 @@
-# Rust Backend Example with Axum
+# Rust Backend with Axum
 
 This is a minimal Rust backend project using the [Axum](https://github.com/tokio-rs/axum) web framework. It demonstrates how to set up a simple HTTP server with a single endpoint.
 
