@@ -1,22 +1,47 @@
 # Rust Backend with Axum
 
-This is a minimal Rust backend project using the [Axum](https://github.com/tokio-rs/axum) web framework. It demonstrates how to set up a simple HTTP server with a single endpoint.
+This is a modular Rust backend project using the [Axum](https://github.com/tokio-rs/axum) web framework. It demonstrates a professional folder structure with separate modules for user, video, and music endpoints, each returning fake sample data.
 
 ## Features
 - Built with [Axum](https://github.com/tokio-rs/axum)
 - Async server powered by [Tokio](https://tokio.rs/)
-- JSON response endpoint
+- Modular structure: user, video, music endpoints
+- JSON response endpoints with sample data
 
-## Endpoint
+## Endpoints
 
-| Method | Path     | Description           |
-|--------|----------|-----------------------|
-| GET    | /hello   | Returns a hello world JSON message |
+| Method | Path                  | Description                        |
+|--------|-----------------------|------------------------------------|
+| GET    | /user/:username       | Get a user by username             |
+| GET    | /video/:uid           | Get a video by uid                 |
+| GET    | /music/:uid           | Get a music by uid                 |
 
-**Example response:**
+### Example responses
+
+**GET /user/johndoe**
 ```json
 {
-  "msg": "hello, world!"
+  "username": "johndoe",
+  "name": "John Doe",
+  "email": "johndoe@example.com"
+}
+```
+
+**GET /video/abc123**
+```json
+{
+  "uid": "abc123",
+  "title": "Sample Video",
+  "duration": 3600
+}
+```
+
+**GET /music/xyz789**
+```json
+{
+  "uid": "xyz789",
+  "title": "Sample Song",
+  "artist": "Sample Artist"
 }
 ```
 
@@ -36,15 +61,20 @@ cargo run
 
 3. The server will start on [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
-4. Test the endpoint:
+4. Test the endpoints:
 
 ```bash
-curl http://127.0.0.1:3000/hello
+curl http://127.0.0.1:3000/user/johndoe
+curl http://127.0.0.1:3000/video/abc123
+curl http://127.0.0.1:3000/music/xyz789
 ```
 
 ## Project Structure
 
-- `src/main.rs` — Main application code, router, and handler
+- `src/main.rs` — Main application code, router setup
+- `src/user.rs` — User endpoint module
+- `src/video.rs` — Video endpoint module
+- `src/music.rs` — Music endpoint module
 - `Cargo.toml` — Project dependencies and metadata
 
 ## Dependencies
